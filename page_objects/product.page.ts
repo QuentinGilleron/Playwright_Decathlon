@@ -7,7 +7,7 @@ export class Product {
     async clickOnAddToCart () {
         // Vérify if the url is the expected one
         const currentURL = this.page.url();
-        if (currentURL !== 'https://www.decathlon.fr/p/bonnet-de-ski-adulte-fisherman-marine/_/R-p-12489?mc=8586009') {
+        if (currentURL !== 'https://www.decathlon.fr/p/bonnet-de-ski-adulte-fisherman-noir/_/R-p-12489?mc=8586009') {
             throw new Error(`Unexpected URL: ${currentURL}`);
         }
 

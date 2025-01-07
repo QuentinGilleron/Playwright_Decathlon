@@ -18,6 +18,11 @@ test('User can find products by searching and add to cart', async ({ page }) => 
     await searchProductPage.clickOnProduct();
     await product.clickOnAddToCart();
     await cartPage.clickOnCartPage();
+
+    // Do screenshot
+    // attendre 3 secondes
+    await page.waitForTimeout(3000);    
+    await page.screenshot({ path: `./screenshots/${Date.now()}_item_add_to_cart.png` });
 });
 
 // // l'utilisateur ne peux pas compiler ses panier si il ouvre deux pages en même temps
