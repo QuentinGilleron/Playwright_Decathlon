@@ -24,21 +24,3 @@ test('User can find products by searching and add to cart', async ({ page }) => 
     await page.waitForTimeout(3000);    
     await page.screenshot({ path: `./screenshots/${Date.now()}_item_add_to_cart.png` });
 });
-
-// // l'utilisateur ne peux pas compiler ses panier si il ouvre deux pages en même temps
-// test('User can not compile his cart if he opens two pages at the same time', async ({ page, browser }) => {
-//     const context = await browser.newContext();
-//     const page2 = await context.newPage();
-//     await page2.setViewportSize({ width: 1920, height: 1080 });
-    
-//     const landingPage = new LandingPage(page);
-//     const searchProductPage = new SearchProductPage(page);
-//     const product = new Product(page);
-//     const cartPage = new Cart(page);
-
-//     await landingPage.openSearchAndClick();
-//     await searchProductPage.clickOnProduct();
-//     await product.clickOnAddToCart();
-//     await cartPage.clickOnCartPage();
-//     await cartPage.clickOnCartPage();
-// });
