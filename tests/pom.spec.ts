@@ -13,14 +13,13 @@ test('User can find products by searching and add to cart', async ({ page }) => 
     const product = new Product(page);
     const cartPage = new Cart(page);
     
-
+    // Open the landing page, search for a product, click on it and add it to the cart
     await landingPage.openSearchAndClick();
     await searchProductPage.clickOnProduct();
     await product.clickOnAddToCart();
     await cartPage.clickOnCartPage();
 
     // Do screenshot
-    // attendre 3 secondes
     await page.waitForTimeout(3000);    
     await page.screenshot({ path: `./screenshots/${Date.now()}_item_add_to_cart.png` });
 });
