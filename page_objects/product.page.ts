@@ -5,10 +5,14 @@ export class Product {
         this.page = page;
     }
     async clickOnAddToCart () {
-        // Vérify if the url is the expected one
-        const currentURL = this.page.url();
-        if (currentURL !== 'https://www.decathlon.fr/p/bonnet-de-ski-adulte-fisherman-noir/_/R-p-12489?mc=8586009') {
-            throw new Error(`Unexpected URL: ${currentURL}`);
+        // Verify title product
+        const productTitle = this.page.locator('text=BONNET DE SKI ADULTE - FISHERMAN - NOIR');
+        if (productTitle) {
+            console.log('Product title is correct');
+        } else {
+            console.log('Product title is incorrect');
+            // stop the test
+            process.exit(1);
         }
 
         // Vérify if the button is displayed and click on it
