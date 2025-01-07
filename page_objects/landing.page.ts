@@ -18,7 +18,7 @@ export class LandingPage {
         }
 
         // Close the cookies banner
-        if (await this.page.getByRole('button', { name: 'Tout refuser et fermer' }).isVisible()) {
+        if (await this.page.getByRole('button', { name: 'Tout refuser et fermer' }).isDisabled()) {
             await this.page.getByRole('button', { name: 'Tout refuser et fermer' }).click();
         }
         else if (await this.page.getByRole('button', { name: 'Accepter & Fermer: Accepter' }).isVisible()) {

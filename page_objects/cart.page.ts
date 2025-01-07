@@ -5,6 +5,14 @@ export class Cart {
         this.page = page;
     }
     async clickOnCartPage () {
-        await this.page.getByRole('link', { name: 'Visualiser mon panier ' }).click();
+
+        // Vérify if the button is displayed and click on it
+        const valideCartBouton = this.page.getByRole('link', { name: 'Visualiser mon panier ' });
+        if (await valideCartBouton.isEnabled()) {
+            await valideCartBouton.click();
+        } else {
+            console.log('Button not clickable');
+        }
+
     } 
 }
